@@ -1,0 +1,71 @@
+cors -for data sharing
+nodemon - works only in command prompt
+
+-----MVC Architecture-----
+
+1) Routing - resolve request (path) ->
+2) Controler- Logic to resolve request ->
+3) Model-mongoose ->
+4) Database-mongodb
+
+-node server communicate with database(mongodb) using model(mongoose package(ODM-object data modelling))
+database accept json
+mongoose convert js to json and vice versa
+
+data sharing btw files only through import and export
+
+200:success
+ 
+Errors----
+400 series- client Errors
+500 -server 
+300 - redirect
+100-info pass
+
+json-object
+key must be string
+
+----mongodb----
+open source document
+NoSql Database
+Colection used to hold documents
+Document: set of key-value pair json,dynamic schema
+
+------RDBMS-----            -----MONGODB------
+- Database                  Database
+- Table                     Colection
+- Tuple/Row                 Document
+- Column                    Field
+- Primary key               _id key()
+
+-------------Mongoose: ODM Library-----------
+1. Object Data Modelling Library for MongoDB and Nodejs
+2. Used to translate between object in node app and representation of those objects in MongoDB
+
+3. Define (Schema/Structure of data) for storing documents in a collection
+    -Define Schema type (String,Number,Bollean)
+    -Option (required,default...)
+4. Create model similar to collection(in mongodb) where we can store documents.
+5. Install mongoose : npm i mongoose
+6. Define connection between mongoDB and Node using mongoose
+    -create folder in server: DB
+    -create a js file to define connection
+        import mongoose
+
+json-webtoken npm for authorisation commands
+
+31/01/24
+--------------
+Middleware
+
+
+
+1/2/24
+----------
+Multer-Middleware
+npm i Multer
+multipart/form Data
+(Multer is a node.js middleware for handling multipart/form-data, which is primarily used for uploading files. It is written on top of busboy for maximum efficiency.)
+Multer will not process any form which is not multipart (multipart/form-data).
+
+- mime type - to upload
