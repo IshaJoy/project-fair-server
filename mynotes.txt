@@ -69,3 +69,4 @@ multipart/form Data
 Multer will not process any form which is not multipart (multipart/form-data).
 
 - mime type - to upload
+$regex - regular expression in mongodb

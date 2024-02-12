@@ -19,7 +19,7 @@ const userSchema = new mongoose.Schema({
     github:{
         type:String
     },
-    linkedln:{
+    linkedin:{
         type:String
     }
 })

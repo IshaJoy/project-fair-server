@@ -12,6 +12,17 @@ router.post('/login',userController.login)
 // router specific middleware
 // add project
 router.post('/add-project',jwtMiddleware,multerConfig.single('projectImage'),projectController.addProjects)
-
-
+// gethomeproject
+router.get('/home-projects',projectController.getHomeProjects)
+// getallprojects
+router.get('/all-projects',jwtMiddleware,projectController.getAllProjects)
+// getuserproject
+router.get('/user-projects',jwtMiddleware,projectController.getUserProjects)
+// edit project
+router.put('/project/edit/:pid',jwtMiddleware,multerConfig.single("projectImage"),projectController.editProject)
+// remove project
+router.delete('/project/remove/:pid',jwtMiddleware,projectController.removeProject)
+// update user
+router.put('/user/edit', jwtMiddleware, multerConfig.single('profileImage'), userController.editUser)
 module.exports =router
+

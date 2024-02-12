@@ -1,6 +1,7 @@
 const users = require('../Models/userModel')
 const jwt = require('jsonwebtoken')
 
+//register
 exports.register =async(req,res)=>{
     const{username,email,password}=req.body
     console.log("Inside register request");
@@ -13,7 +14,7 @@ exports.register =async(req,res)=>{
     } else{
         // add user to db
         const newUser = new users({
-            username,email,password,profile:"",github:"",linkedln:""
+            username,email,password,profile:"",github:"",linkedin:""
         })
         await newUser.save()
         res.status(200).json(newUser)
@@ -26,6 +27,8 @@ exports.register =async(req,res)=>{
 
 }
 
+
+//login
 exports.login =async(req,res)=>{
     const{email,password}=req.body
     console.log("Inside login request");
@@ -46,5 +49,26 @@ exports.login =async(req,res)=>{
     }catch(err){
         res.status(401).json(err)
     }
+
+}
+
+// profile update
+
+exports.editUser = async (req, res) => {
+    const userId = req.payload
+    const { username, password, email, github, linkedin, profileImage } = req.body
+    // if multer active
+    const profile = req.file ? req.file.filename : profileImage
+    try {
+        const updateUser = await users.findByIdAndUpdate({ _id: userId }, {
+            username, email, password, profile, github, linkedin
+        }, { new: true })
+        await updateUser.save()
+        res.status(200).json(updateUser)
+
+    } catch (err) {
+        res.status(401).json(err)
+    }
+
 
 }
